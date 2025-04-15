@@ -11,13 +11,15 @@ def rotate_list(list, shift_by):
     print(list)
 
 def rotate_list_in_place(list, shift_by):
-    border_index = shift_by%len(list)
+    border_index = (len(list) - shift_by%len(list)) if shift_by >= len(list) else (len(list) - shift_by)
     list.extend(list[:border_index])
     del list[:border_index]
     return list
 
-# rotate_list([1, 2, 3, 4, 5],3)
-# rotate_list(["d", 2, "fine", 4, 5],10)
+print("First function that does rotation while making a new list")
+rotate_list([1, 2, 3, 4, 5],2)
+rotate_list(["d", 2, "fine", 4, 5],10)
 
-# print(rotate_list_in_place([1, 2, 3, 4, 5],3))
-print(rotate_list_in_place(["d", 2, "fine", 4, 5], 11))
+print("Second function that does rotation in place")
+print(rotate_list_in_place([1, 2, 3, 4, 5],3))
+print(rotate_list_in_place(["d", 2, "fine", 4, 5], 10))
