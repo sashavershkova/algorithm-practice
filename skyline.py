@@ -8,16 +8,21 @@
 
 # Output: [1,3,7]
 
+# PSEUDOCODE
+# if a number is negative: ignore it
+# if a number 
 
 def skyline(building_list):
     visible = []
-    for i in range(len(building_list)-1):
+    for i in range(len(building_list)):
         if building_list[i] < 0:
             continue
-)
+        elif building_list[i-1] == building_list[i]:
+            break
+        
         visible.append(building_list[i])
 
-    print(visible)
+    return visible
 
-skyline([-1, 1, 3, 7, 7, 3])
-skyline([-1, 1, 3])
+print(skyline([-1, 1, 3, 7, 7, 3]))
+print(skyline([-1, 1, 3, 11, 11, 5]))
